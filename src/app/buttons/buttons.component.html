@@ -1,0 +1,6 @@
+<div class="row mt-5">
+    <div class="col-sm-6">
+        <button class="btn btn-primary mr-3" *ngIf="step > 1" (click)="stepBack()">Annulla</button>
+        <button class="btn btn-success" *ngIf="step < 3" (click)="stepForvard()" [disabled]="noValidation">Continua</button>
+    </div>
+</div>

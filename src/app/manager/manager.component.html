@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row mt-3">
+    <app-breadcrumps [step]="step" *ngIf="step > 1 && step < 3"></app-breadcrumps>
+    <div class="col-12">
+      <div [ngSwitch]="step">
+        <app-step1 *ngSwitchCase="1" [data]="data" [step]="step"></app-step1>
+        <app-step2 *ngSwitchCase="2" [currentTransaction]="currentTransaction" [step]="step"></app-step2>
+        <app-step3 *ngSwitchCase="3"></app-step3>
+        <app-error-page *ngSwitchDefault></app-error-page>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader *ngIf="loading"></app-loader>
+

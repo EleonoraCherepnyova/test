@@ -1,0 +1,68 @@
+<!-- Title step 1-->
+<h1 class="mt-5">Make your money transfer</h1>
+<!-- Description -->
+<p>Choose the account you want to send money from. Then the account from your notebook which you want to send money to. Choose the sum and make your transfer!</p>
+<form class="mt-5" [formGroup]="form">
+  <div class="row">
+    <!-- Account select -->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Account Number</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="account"
+          (change)="accountChange()">
+          <option value="{{account.accountNumber}}" *ngFor="let account of data.accountList">
+            <span *ngIf="account.accountType == 'PA'">Post Account</span>
+            <span *ngIf="account.accountType == 'BA'">Bank Account</span>
+            {{account.accountNumber}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- Show balance -->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Available balance</label>
+        <p>{{amount}}</p>
+        <p *ngIf="showError" class="alert alert-danger">Not enough money</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Creditor select -->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect3">Transfer money to</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="creditor">
+          <option value="{{name.creditorNumber}}" *ngFor="let name of data.noteBookList">
+            {{name.creditorName}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- Input sum -->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect4">Send amount</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">&euro;</span>
+          </div>
+          <input type="text" class="form-control" pattern="[0-9]+" [ngClass]="{'is-invalid': showError}" formControlName="sum">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+          </div>
+          <div class="invalid-feedback">
+            Please provide a valid amount.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Step buttons -->
+  <div class="row">
+    <div class="col-sm-12">
+      <app-buttons [step]="step" (changeStepEmitter)="changeStep()"
+        [noValidation]="form.invalid || this.form.value.sum <= 0"></app-buttons>
+    </div>
+  </div>
+</form>

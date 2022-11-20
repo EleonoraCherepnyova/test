@@ -1,0 +1,20 @@
+<h3 class="mb-5 text-center">Verify your transaction info</h3>
+
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th scope="row">Transaction from</th>
+      <td>{{currentTransaction.account}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Transaction to</th>
+      <td>{{currentTransaction.creditor}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Amount</th>
+      <td colspan="2">{{currentTransaction.sum}}&euro;</td>
+    </tr>
+  </tbody>
+</table>
+
+<app-buttons [step]="step" (stepBackEmitter)="stepBack()" (changeStepEmitter)="changeStep()"></app-buttons>

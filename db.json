@@ -1,0 +1,66 @@
+{
+  "accountList": [
+    {
+      "accountType": "BA",
+      "accountNumber": "0012345678900009",
+      "amount": 10000,
+      "accountName": "Mario Rossi"
+    },
+    {
+      "accountType": "PA",
+      "accountNumber": "0012345698900009",
+      "amount": 2000,
+      "accountName": "Mario Rossi"
+    },
+    {
+      "accountType": "BA",
+      "accountNumber": "0012345678902009",
+      "amount": 100,
+      "accountName": "Mario Rossi"
+    },
+    {
+      "accountType": "PA",
+      "accountNumber": "0012345678900000",
+      "amount": 1000200,
+      "accountName": "Mario Rossi"
+    }
+  ],
+  "noteBookList": [
+    {
+      "creditorType": "BA",
+      "creditorNumber": "IT10B2345678900009",
+      "creditorName": "Elena Miele"
+    },
+    {
+      "creditorType": "PA",
+      "creditorNumber": "IT20A2345698900009",
+      "creditorName": "Mario Rossi"
+    },
+    {
+      "creditorType": "BA",
+      "creditorNumber": "IT30C2345678902009",
+      "creditorName": "Ricardo Bianchi"
+    },
+    {
+      "creditorType": "PA",
+      "creditorNumber": "IT40M2345678900000",
+      "creditorName": "Antonio Navigli"
+    }
+  ],
+  "transactionsToValidate": [
+    {
+      "account": "0012345678900000",
+      "creditor": "IT10B2345678900009",
+      "sum": 100,
+      "id": 1
+    }
+  ],
+  "transactionsConfirmed": [
+    {
+      "account": "0012345678900000",
+      "creditor": "IT10B2345678900009",
+      "sum": 100,
+      "id": 1
+    }
+  ]
+}
